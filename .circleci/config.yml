@@ -41,7 +41,7 @@ jobs:
           name: Test
           command: |
             yarn test
-            yarn coveralls
+            yarn codecov
       - run:
           name: Build
           command: yarn build
