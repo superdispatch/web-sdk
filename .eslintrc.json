@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "overrides": [
+    { "files": "*.js", "extends": "plugin:@superdispatch/node" },
+    {
+      "files": "*.ts",
+      "extends": ["plugin:@superdispatch/typescript"]
+    },
+    {
+      "files": "**/__tests__/**/*.ts",
+      "extends": "plugin:@superdispatch/jest",
+      "rules": {
+        "quotes": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
+}
