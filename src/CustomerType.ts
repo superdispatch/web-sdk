@@ -6,25 +6,19 @@ export type CustomerType =
   | 'REPO_YARD'
   | 'PORT';
 
+const values = new Map<CustomerType, string>([
+  ['BUSINESS', 'Business'],
+  ['DEALER', 'Dealer'],
+  ['PRIVATE', 'Private'],
+  ['AUCTION', 'Auction'],
+  ['REPO_YARD', 'Repo Yard'],
+  ['PORT', 'Port'],
+]);
+
 export function listCustomerTypes(): CustomerType[] {
-  return ['BUSINESS', 'DEALER', 'PRIVATE', 'AUCTION', 'REPO_YARD', 'PORT'];
+  return Array.from(values.keys());
 }
 
 export function formatCustomerType(value: CustomerType): string {
-  switch (value) {
-    case 'BUSINESS':
-      return 'Business';
-    case 'DEALER':
-      return 'Dealer';
-    case 'PRIVATE':
-      return 'Private';
-    case 'AUCTION':
-      return 'Auction';
-    case 'REPO_YARD':
-      return 'Repo Yard';
-    case 'PORT':
-      return 'Port';
-    default:
-      return 'Unknown';
-  }
+  return values.get(value) ?? 'Unknown';
 }

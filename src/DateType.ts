@@ -4,21 +4,17 @@ export type DateType =
   | 'not_earlier_than'
   | 'not_later_than';
 
+const values = new Map<DateType, string>([
+  ['estimated', 'Estimated'],
+  ['exact', 'Exactly'],
+  ['not_earlier_than', 'No Earlier than'],
+  ['not_later_than', 'No Later than'],
+]);
+
 export function listDateTypes(): DateType[] {
-  return ['estimated', 'exact', 'not_earlier_than', 'not_later_than'];
+  return Array.from(values.keys());
 }
 
 export function formatDateType(value: DateType): string {
-  switch (value) {
-    case 'estimated':
-      return 'Estimated';
-    case 'exact':
-      return 'Exactly';
-    case 'not_earlier_than':
-      return 'No Earlier than';
-    case 'not_later_than':
-      return 'No Later than';
-    default:
-      return 'Unknown';
-  }
+  return values.get(value) ?? 'Unknown';
 }

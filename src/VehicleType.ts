@@ -19,71 +19,32 @@ export type VehicleType =
   | 'trailer_5th_wheel'
   | 'other';
 
+const values = new Map<VehicleType, string>([
+  ['sedan', 'Sedan'],
+  ['2_door_coupe', 'Coupe (2 doors)'],
+  ['suv', 'SUV'],
+  ['pickup', 'Pickup (2 doors)'],
+  ['4_door_pickup', 'Pickup (4 doors)'],
+  ['van', 'Van'],
+  ['truck_daycab', 'Truck (daycab)'],
+  ['truck_sleeper', 'Truck (with sleeper)'],
+  ['motorcycle', 'Motorcycle'],
+  ['boat', 'Boat'],
+  ['rv', 'RV'],
+  ['heavy_machinery', 'Heavy Machinery'],
+  ['freight', 'Freight'],
+  ['livestock', 'Livestock'],
+  ['atv', 'ATV'],
+  ['trailer_bumper_pull', 'Trailer (Bumper Pull)'],
+  ['trailer_gooseneck', 'Trailer (Gooseneck)'],
+  ['trailer_5th_wheel', 'Trailer (5th Wheel)'],
+  ['other', 'Other'],
+]);
+
 export function listVehicleTypes(): VehicleType[] {
-  return [
-    'sedan',
-    '2_door_coupe',
-    'suv',
-    'pickup',
-    '4_door_pickup',
-    'van',
-    'truck_daycab',
-    'truck_sleeper',
-    'motorcycle',
-    'boat',
-    'rv',
-    'heavy_machinery',
-    'freight',
-    'livestock',
-    'atv',
-    'trailer_bumper_pull',
-    'trailer_gooseneck',
-    'trailer_5th_wheel',
-    'other',
-  ];
+  return Array.from(values.keys());
 }
 
 export function formatVehicleType(value: VehicleType): string {
-  switch (value) {
-    case 'sedan':
-      return 'Sedan';
-    case '2_door_coupe':
-      return 'Coupe (2 doors)';
-    case 'suv':
-      return 'SUV';
-    case 'pickup':
-      return 'Pickup (2 doors)';
-    case '4_door_pickup':
-      return 'Pickup (4 doors)';
-    case 'van':
-      return 'Van';
-    case 'truck_daycab':
-      return 'Truck (daycab)';
-    case 'truck_sleeper':
-      return 'Truck (with sleeper)';
-    case 'motorcycle':
-      return 'Motorcycle';
-    case 'boat':
-      return 'Boat';
-    case 'rv':
-      return 'RV';
-    case 'heavy_machinery':
-      return 'Heavy Machinery';
-    case 'freight':
-      return 'Freight';
-    case 'livestock':
-      return 'Livestock';
-    case 'atv':
-      return 'ATV';
-    case 'trailer_bumper_pull':
-      return 'Trailer (Bumper Pull)';
-    case 'trailer_gooseneck':
-      return 'Trailer (Gooseneck)';
-    case 'trailer_5th_wheel':
-      return 'Trailer (5th Wheel)';
-    case 'other':
-      return 'Other';
-    default:
-      return 'Unknown';
-  }
+  return values.get(value) ?? 'Unknown';
 }
