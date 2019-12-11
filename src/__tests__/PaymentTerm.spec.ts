@@ -1,6 +1,6 @@
 import { formatPaymentTerm, listPaymentTerms } from '../PaymentTerm';
 
-it('returns list of Date types', () => {
+it('returns list', () => {
   expect(listPaymentTerms()).toMatchInlineSnapshot(`
     Array [
       "other",
@@ -22,7 +22,7 @@ it('returns list of Date types', () => {
   `);
 });
 
-it('formats known Date type', () => {
+it('formats known', () => {
   expect([
     formatPaymentTerm('other'),
     formatPaymentTerm('other', { short: true }),
@@ -90,7 +90,7 @@ it('formats known Date type', () => {
   `);
 });
 
-it('formats unknown Date type', () => {
+it('formats unknown', () => {
   expect(formatPaymentTerm('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatPaymentTerm('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
 });

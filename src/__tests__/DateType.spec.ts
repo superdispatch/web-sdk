@@ -1,6 +1,6 @@
 import { formatDateType, listDateTypes } from '../DateType';
 
-it('returns list of Date types', () => {
+it('returns list', () => {
   expect(listDateTypes()).toMatchInlineSnapshot(`
     Array [
       "estimated",
@@ -11,7 +11,7 @@ it('returns list of Date types', () => {
   `);
 });
 
-it('formats known Date type', () => {
+it('formats known', () => {
   expect([
     formatDateType('estimated'),
     formatDateType('exact'),
@@ -27,7 +27,7 @@ it('formats known Date type', () => {
   `);
 });
 
-it('formats unknown Date type', () => {
+it('formats unknown', () => {
   expect(formatDateType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatDateType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
 });

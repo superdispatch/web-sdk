@@ -1,6 +1,6 @@
 import { formatPaymentMethod, listPaymentMethods } from '../PaymentMethod';
 
-it('returns list of Date types', () => {
+it('returns list', () => {
   expect(listPaymentMethods()).toMatchInlineSnapshot(`
     Array [
       "cash",
@@ -15,7 +15,7 @@ it('returns list of Date types', () => {
   `);
 });
 
-it('formats known Date type', () => {
+it('formats known', () => {
   expect([
     formatPaymentMethod('cash'),
     formatPaymentMethod('check'),
@@ -39,7 +39,7 @@ it('formats known Date type', () => {
   `);
 });
 
-it('formats unknown Date type', () => {
+it('formats unknown', () => {
   expect(formatPaymentMethod('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatPaymentMethod('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
 });

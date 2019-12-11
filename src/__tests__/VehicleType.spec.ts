@@ -1,6 +1,6 @@
 import { formatVehicleType, listVehicleTypes } from '../VehicleType';
 
-it('returns list of Date types', () => {
+it('returns list', () => {
   expect(listVehicleTypes()).toMatchInlineSnapshot(`
     Array [
       "sedan",
@@ -26,7 +26,7 @@ it('returns list of Date types', () => {
   `);
 });
 
-it('formats known Date type', () => {
+it('formats known', () => {
   expect([
     formatVehicleType('sedan'),
     formatVehicleType('2_door_coupe'),
@@ -72,7 +72,7 @@ it('formats known Date type', () => {
   `);
 });
 
-it('formats unknown Date type', () => {
+it('formats unknown', () => {
   expect(formatVehicleType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatVehicleType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
 });
