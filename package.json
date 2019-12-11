@@ -12,7 +12,7 @@
     "prebump": "npm run lint && npx tsc && npm run build",
     "bump": "npx pika publish --no-publish",
     "lint": "js-tools lint",
-    "tdd": "jest --watch -u",
+    "tdd": "jest --watch",
     "test": "jest --coverage",
     "version": "npm run build"
   },
