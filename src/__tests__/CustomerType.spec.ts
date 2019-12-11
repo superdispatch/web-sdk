@@ -1,6 +1,6 @@
 import { formatCustomerType, listCustomerTypes } from '../CustomerType';
 
-it('returns list of customer types', () => {
+it('returns list', () => {
   expect(listCustomerTypes()).toMatchInlineSnapshot(`
     Array [
       "BUSINESS",
@@ -13,7 +13,7 @@ it('returns list of customer types', () => {
   `);
 });
 
-it('formats known customer type', () => {
+it('formats known', () => {
   expect([
     formatCustomerType('BUSINESS'),
     formatCustomerType('DEALER'),
@@ -33,7 +33,7 @@ it('formats known customer type', () => {
   `);
 });
 
-it('formats unknown customer type', () => {
+it('formats unknown', () => {
   expect(formatCustomerType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatCustomerType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
 });
