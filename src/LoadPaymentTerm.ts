@@ -24,5 +24,5 @@ export function listLoadPaymentTerms(): LoadPaymentTerm[] {
 }
 
 export function formatLoadPaymentTerm(value: LoadPaymentTerm): string {
-  return values.get(value) ?? 'Unknown';
+  return values.get(value) || 'Unknown';
 }

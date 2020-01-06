@@ -46,5 +46,5 @@ export function listVehicleTypes(): VehicleType[] {
 }
 
 export function formatVehicleType(value: VehicleType): string {
-  return values.get(value) ?? 'Unknown';
+  return values.get(value) || 'Unknown';
 }

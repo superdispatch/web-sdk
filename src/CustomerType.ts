@@ -20,5 +20,5 @@ export function listCustomerTypes(): CustomerType[] {
 }
 
 export function formatCustomerType(value: CustomerType): string {
-  return values.get(value) ?? 'Unknown';
+  return values.get(value) || 'Unknown';
 }

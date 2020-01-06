@@ -16,5 +16,5 @@ export function listDateTypes(): DateType[] {
 }
 
 export function formatDateType(value: DateType): string {
-  return values.get(value) ?? 'Unknown';
+  return values.get(value) || 'Unknown';
 }
