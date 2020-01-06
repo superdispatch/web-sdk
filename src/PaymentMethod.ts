@@ -24,5 +24,5 @@ export function listPaymentMethods(): PaymentMethod[] {
 }
 
 export function formatPaymentMethod(value: PaymentMethod): string {
-  return values.get(value) ?? 'Unknown';
+  return values.get(value) || 'Unknown';
 }

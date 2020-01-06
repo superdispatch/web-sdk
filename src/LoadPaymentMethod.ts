@@ -24,5 +24,5 @@ export function listLoadPaymentMethods(): LoadPaymentMethod[] {
 }
 
 export function formatLoadPaymentMethod(value: LoadPaymentMethod): string {
-  return values.get(value) ?? 'Unknown';
+  return values.get(value) || 'Unknown';
 }

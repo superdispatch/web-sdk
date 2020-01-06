@@ -52,5 +52,5 @@ export function formatPaymentTerm(
   value: PaymentTerm,
   { short = false }: FormatPaymentTermOptions = {},
 ): string {
-  return ((short && shortValues.get(value)) || values.get(value)) ?? 'Unknown';
+  return (short && shortValues.get(value)) || values.get(value) || 'Unknown';
 }
