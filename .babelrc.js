@@ -8,12 +8,10 @@ module.exports = api => {
   return {
     compact: false,
     presets: [
-      isTest && '@babel/preset-typescript',
-      isTest && ['@babel/preset-env', { targets: { node: true } }],
-    ].filter(Boolean),
-    plugins: [
-      ['@babel/plugin-proposal-optional-chaining', { loose: true }],
-      ['@babel/plugin-proposal-nullish-coalescing-operator', { loose: true }],
+      [
+        '@superdispatch/babel-preset',
+        { loose: true, targets: 'esmodules', optimize: { runtime: false } },
+      ],
     ],
   };
 };
