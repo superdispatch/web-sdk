@@ -4,13 +4,11 @@ on:
   push:
     branches:
       - master
+    tags:
+      - 'v*.*.*'
   pull_request:
     branches:
       - '**'
-  release:
-    types:
-      - created
-
 jobs:
   build:
     runs-on: ubuntu-latest
