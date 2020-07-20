@@ -16,6 +16,7 @@
     "test": "jest --coverage",
     "version": "yarn build"
   },
+  "prettier": "@superdispatch/prettier-config",
   "devDependencies": {
     "@pika/cli": "^0.2.0",
     "@pika/pack": "^0.5.0",
