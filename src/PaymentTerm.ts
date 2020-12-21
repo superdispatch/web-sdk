@@ -46,11 +46,12 @@ export function listPaymentTerms(): PaymentTerm[] {
 
 export interface FormatPaymentTermOptions {
   short?: boolean;
+  fallback?: string
 }
 
 export function formatPaymentTerm(
   value: PaymentTerm,
-  { short = false }: FormatPaymentTermOptions = {},
+  { short = false, fallback = 'Unknown' }: FormatPaymentTermOptions = {},
 ): string {
-  return (short && shortValues.get(value)) || values.get(value) || 'Unknown';
+  return (short && shortValues.get(value)) || values.get(value) || fallback;
 }

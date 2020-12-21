@@ -1,4 +1,4 @@
-import { formatPaymentTerm, listPaymentTerms } from '../PaymentTerm';
+import {formatPaymentTerm, listPaymentTerms} from '../PaymentTerm';
 
 it('returns list', () => {
   expect(listPaymentTerms()).toMatchInlineSnapshot(`
@@ -93,4 +93,5 @@ it('formats known', () => {
 it('formats unknown', () => {
   expect(formatPaymentTerm('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatPaymentTerm('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatPaymentTerm('BAR' as any, { fallback: 'No info' })).toMatchInlineSnapshot(`"No info"`);
 });

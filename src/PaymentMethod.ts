@@ -23,6 +23,10 @@ export function listPaymentMethods(): PaymentMethod[] {
   return Array.from(values.keys());
 }
 
-export function formatPaymentMethod(value: PaymentMethod): string {
-  return values.get(value) || 'Unknown';
+interface FormatPaymentMethodOptions {
+  fallback?: string;
+}
+
+export function formatPaymentMethod(value: PaymentMethod, { fallback = 'Unknown'}: FormatPaymentMethodOptions = {}): string {
+  return values.get(value) ||fallback;
 }

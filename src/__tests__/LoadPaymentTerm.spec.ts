@@ -1,8 +1,5 @@
-import {
-  formatLoadPaymentTerm,
-  listLoadPaymentTerms,
-} from '../LoadPaymentTerm';
-import { formatPaymentTerm } from '../PaymentTerm';
+import {formatLoadPaymentTerm, listLoadPaymentTerms,} from '../LoadPaymentTerm';
+import {formatPaymentTerm} from '../PaymentTerm';
 
 it('returns list ofs', () => {
   expect(listLoadPaymentTerms()).toMatchInlineSnapshot(`
@@ -46,4 +43,5 @@ it('formats known', () => {
 it('formats unknown', () => {
   expect(formatPaymentTerm('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatPaymentTerm('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatPaymentTerm('BAR' as any, { fallback: 'No info' })).toMatchInlineSnapshot(`"No info"`);
 });
