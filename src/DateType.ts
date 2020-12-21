@@ -15,6 +15,13 @@ export function listDateTypes(): DateType[] {
   return Array.from(values.keys());
 }
 
-export function formatDateType(value: DateType): string {
-  return values.get(value) || 'Unknown';
+interface FormatDateTypeOptions {
+  fallback?: string;
+}
+
+export function formatDateType(
+  value: DateType,
+  { fallback = 'Unknown' }: FormatDateTypeOptions = {},
+): string {
+  return values.get(value) || fallback;
 }

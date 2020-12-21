@@ -23,6 +23,13 @@ export function listLoadPaymentTerms(): LoadPaymentTerm[] {
   return Array.from(values.keys());
 }
 
-export function formatLoadPaymentTerm(value: LoadPaymentTerm): string {
-  return values.get(value) || 'Unknown';
+interface FormatLoadPaymentTermOptions {
+  fallback?: string;
+}
+
+export function formatLoadPaymentTerm(
+  value: LoadPaymentTerm,
+  { fallback = 'Unknown' }: FormatLoadPaymentTermOptions = {},
+): string {
+  return values.get(value) || fallback;
 }
