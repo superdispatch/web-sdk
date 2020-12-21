@@ -19,6 +19,13 @@ export function listCustomerTypes(): CustomerType[] {
   return Array.from(values.keys());
 }
 
-export function formatCustomerType(value: CustomerType): string {
-  return values.get(value) || 'Unknown';
+interface FormatCustomerTypeOptions {
+  fallback?: string;
+}
+
+export function formatCustomerType(
+  value: CustomerType,
+  { fallback = 'Unknown' }: FormatCustomerTypeOptions = {},
+): string {
+  return values.get(value) || fallback;
 }

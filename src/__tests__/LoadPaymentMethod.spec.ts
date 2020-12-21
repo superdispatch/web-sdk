@@ -49,4 +49,7 @@ it('formats unknown', () => {
   expect(formatLoadPaymentMethod('BAR' as any)).toMatchInlineSnapshot(
     `"Unknown"`,
   );
+  expect(
+    formatLoadPaymentMethod('BAR' as any, { fallback: 'No info' }),
+  ).toMatchInlineSnapshot(`"No info"`);
 });

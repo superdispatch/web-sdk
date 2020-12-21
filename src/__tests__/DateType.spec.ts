@@ -30,4 +30,7 @@ it('formats known', () => {
 it('formats unknown', () => {
   expect(formatDateType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatDateType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(
+    formatDateType('BAR' as any, { fallback: 'No info' }),
+  ).toMatchInlineSnapshot(`"No info"`);
 });

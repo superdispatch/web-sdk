@@ -75,4 +75,7 @@ it('formats known', () => {
 it('formats unknown', () => {
   expect(formatVehicleType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatVehicleType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(
+    formatVehicleType('BAR' as any, { fallback: 'No info' }),
+  ).toMatchInlineSnapshot(`"No info"`);
 });

@@ -36,4 +36,7 @@ it('formats known', () => {
 it('formats unknown', () => {
   expect(formatCustomerType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatCustomerType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(
+    formatCustomerType('BAR' as any, { fallback: 'No info' }),
+  ).toMatchInlineSnapshot(`"No info"`);
 });
