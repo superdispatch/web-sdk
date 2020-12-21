@@ -46,9 +46,12 @@ export function listVehicleTypes(): VehicleType[] {
 }
 
 interface FormatVehicleTypeOptions {
-  fallback?: string
+  fallback?: string;
 }
 
-export function formatVehicleType(value: VehicleType, { fallback = 'Unknown'}: FormatVehicleTypeOptions = {}): string {
+export function formatVehicleType(
+  value: VehicleType,
+  { fallback = 'Unknown' }: FormatVehicleTypeOptions = {},
+): string {
   return values.get(value) || fallback;
 }

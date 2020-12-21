@@ -1,4 +1,4 @@
-import {formatVehicleType, listVehicleTypes} from '../VehicleType';
+import { formatVehicleType, listVehicleTypes } from '../VehicleType';
 
 it('returns list', () => {
   expect(listVehicleTypes()).toMatchInlineSnapshot(`
@@ -75,5 +75,7 @@ it('formats known', () => {
 it('formats unknown', () => {
   expect(formatVehicleType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatVehicleType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatVehicleType('BAR' as any, { fallback: 'No info' })).toMatchInlineSnapshot(`"No info"`);
+  expect(
+    formatVehicleType('BAR' as any, { fallback: 'No info' }),
+  ).toMatchInlineSnapshot(`"No info"`);
 });

@@ -46,7 +46,7 @@ export function listPaymentTerms(): PaymentTerm[] {
 
 export interface FormatPaymentTermOptions {
   short?: boolean;
-  fallback?: string
+  fallback?: string;
 }
 
 export function formatPaymentTerm(

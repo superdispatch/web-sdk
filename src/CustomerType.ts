@@ -23,6 +23,9 @@ interface FormatCustomerTypeOptions {
   fallback?: string;
 }
 
-export function formatCustomerType(value: CustomerType, { fallback = 'Unknown'}: FormatCustomerTypeOptions = {}): string {
+export function formatCustomerType(
+  value: CustomerType,
+  { fallback = 'Unknown' }: FormatCustomerTypeOptions = {},
+): string {
   return values.get(value) || fallback;
 }

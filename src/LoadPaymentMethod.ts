@@ -24,9 +24,12 @@ export function listLoadPaymentMethods(): LoadPaymentMethod[] {
 }
 
 interface FormatLoadPaymentMethodOptions {
-  fallback?: string
+  fallback?: string;
 }
 
-export function formatLoadPaymentMethod(value: LoadPaymentMethod, { fallback = 'Unknown' }: FormatLoadPaymentMethodOptions = {}): string {
+export function formatLoadPaymentMethod(
+  value: LoadPaymentMethod,
+  { fallback = 'Unknown' }: FormatLoadPaymentMethodOptions = {},
+): string {
   return values.get(value) || fallback;
 }

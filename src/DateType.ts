@@ -19,6 +19,9 @@ interface FormatDateTypeOptions {
   fallback?: string;
 }
 
-export function formatDateType(value: DateType, { fallback = 'Unknown' }: FormatDateTypeOptions = {}): string {
+export function formatDateType(
+  value: DateType,
+  { fallback = 'Unknown' }: FormatDateTypeOptions = {},
+): string {
   return values.get(value) || fallback;
 }

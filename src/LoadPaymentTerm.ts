@@ -27,6 +27,9 @@ interface FormatLoadPaymentTermOptions {
   fallback?: string;
 }
 
-export function formatLoadPaymentTerm(value: LoadPaymentTerm, { fallback = 'Unknown' }: FormatLoadPaymentTermOptions = {}): string {
+export function formatLoadPaymentTerm(
+  value: LoadPaymentTerm,
+  { fallback = 'Unknown' }: FormatLoadPaymentTermOptions = {},
+): string {
   return values.get(value) || fallback;
 }

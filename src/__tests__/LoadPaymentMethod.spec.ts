@@ -1,4 +1,7 @@
-import {formatLoadPaymentMethod, listLoadPaymentMethods,} from '../LoadPaymentMethod';
+import {
+  formatLoadPaymentMethod,
+  listLoadPaymentMethods,
+} from '../LoadPaymentMethod';
 
 it('returns list', () => {
   expect(listLoadPaymentMethods()).toMatchInlineSnapshot(`
@@ -46,5 +49,7 @@ it('formats unknown', () => {
   expect(formatLoadPaymentMethod('BAR' as any)).toMatchInlineSnapshot(
     `"Unknown"`,
   );
-  expect(formatLoadPaymentMethod('BAR' as any, { fallback: 'No info' })).toMatchInlineSnapshot(`"No info"`);
+  expect(
+    formatLoadPaymentMethod('BAR' as any, { fallback: 'No info' }),
+  ).toMatchInlineSnapshot(`"No info"`);
 });

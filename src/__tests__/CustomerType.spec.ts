@@ -1,4 +1,4 @@
-import {formatCustomerType, listCustomerTypes} from '../CustomerType';
+import { formatCustomerType, listCustomerTypes } from '../CustomerType';
 
 it('returns list', () => {
   expect(listCustomerTypes()).toMatchInlineSnapshot(`
@@ -36,5 +36,7 @@ it('formats known', () => {
 it('formats unknown', () => {
   expect(formatCustomerType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
   expect(formatCustomerType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatCustomerType('BAR' as any, { fallback: 'No info' })).toMatchInlineSnapshot(`"No info"`);
+  expect(
+    formatCustomerType('BAR' as any, { fallback: 'No info' }),
+  ).toMatchInlineSnapshot(`"No info"`);
 });

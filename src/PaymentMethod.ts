@@ -27,6 +27,9 @@ interface FormatPaymentMethodOptions {
   fallback?: string;
 }
 
-export function formatPaymentMethod(value: PaymentMethod, { fallback = 'Unknown'}: FormatPaymentMethodOptions = {}): string {
-  return values.get(value) ||fallback;
+export function formatPaymentMethod(
+  value: PaymentMethod,
+  { fallback = 'Unknown' }: FormatPaymentMethodOptions = {},
+): string {
+  return values.get(value) || fallback;
 }
