@@ -11,7 +11,7 @@
     },
     {
       "files": "**/__tests__/**/*.ts",
-      "extends": "plugin:@superdispatch/jest",
+      "extends": "plugin:@superdispatch/ts-jest",
       "rules": {
         "quotes": "off",
         "@typescript-eslint/no-explicit-any": "off"
