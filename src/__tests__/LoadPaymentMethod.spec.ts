@@ -13,6 +13,10 @@ it('returns list', () => {
       "ckod",
       "ach",
       "factoring",
+      "venmo",
+      "cashapp",
+      "uship",
+      "zelle",
       "other",
     ]
   `);
@@ -27,6 +31,10 @@ it('formats known', () => {
     formatLoadPaymentMethod('ckod'),
     formatLoadPaymentMethod('ach'),
     formatLoadPaymentMethod('factoring'),
+    formatLoadPaymentMethod('venmo'),
+    formatLoadPaymentMethod('cashapp'),
+    formatLoadPaymentMethod('uship'),
+    formatLoadPaymentMethod('zelle'),
     formatLoadPaymentMethod('other'),
   ]).toMatchInlineSnapshot(`
     Array [
@@ -37,6 +45,10 @@ it('formats known', () => {
       "CKOD",
       "ACH",
       "Factoring",
+      "Venmo",
+      "CashApp",
+      "UShip",
+      "Zelle",
       "Other",
     ]
   `);

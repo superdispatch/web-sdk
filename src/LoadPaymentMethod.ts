@@ -6,6 +6,10 @@ export type LoadPaymentMethod =
   | 'ckod'
   | 'ach'
   | 'factoring'
+  | 'venmo'
+  | 'cashapp'
+  | 'uship'
+  | 'zelle'
   | 'other';
 
 const values = new Map<LoadPaymentMethod, string>([
@@ -16,6 +20,10 @@ const values = new Map<LoadPaymentMethod, string>([
   ['ckod', 'CKOD'],
   ['ach', 'ACH'],
   ['factoring', 'Factoring'],
+  ['venmo', 'Venmo'],
+  ['cashapp', 'CashApp'],
+  ['uship', 'UShip'],
+  ['zelle', 'Zelle'],
   ['other', 'Other'],
 ]);
 
