@@ -1,0 +1,22 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    branches:
+      - '**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: umidbekk/actions/npm/install@v1
+      - run: yarn tsc
+      - run: yarn lint
+      - run: yarn test
+      - uses: codecov/codecov-action@v1
+      - run: yarn build
