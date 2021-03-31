@@ -1,47 +1,32 @@
-export type PaymentTerm =
-  | 'other'
-  | 'ach'
-  | 'comchek'
-  | 'cash_on_pickup'
-  | 'cash_on_delivery'
-  | 'quick_pay'
-  | 'check_on_delivery'
-  | 'check_on_pickup'
-  | '5_days'
-  | '7_days'
-  | '10_days'
-  | '15_days'
-  | '20_days'
-  | '30_days'
-  | '45_days';
+import { toStartCase } from './internal/toStartCase';
 
-const values = new Map<PaymentTerm, string>([
-  ['other', 'Other'],
-  ['ach', 'ACH'],
-  ['comchek', 'Comchek'],
-  ['cash_on_pickup', 'Cash on Pickup'],
-  ['cash_on_delivery', 'Cash on Delivery'],
-  ['quick_pay', 'QuickPay'],
-  ['check_on_delivery', 'Check on Delivery'],
-  ['check_on_pickup', 'Check on Pickup'],
-  ['5_days', '5 Days'],
-  ['7_days', '7 Days'],
-  ['10_days', '10 Days'],
-  ['15_days', '15 Days'],
-  ['20_days', '20 Days'],
-  ['30_days', '30 Days'],
-  ['45_days', '45 Days'],
-]);
+export const PAYMENT_TERMS = [
+  'other',
+  'ach',
+  'comchek',
+  'cash_on_pickup',
+  'cash_on_delivery',
+  'quick_pay',
+  'check_on_delivery',
+  'check_on_pickup',
+  '5_days',
+  '7_days',
+  '10_days',
+  '15_days',
+  '20_days',
+  '30_days',
+  '45_days',
+] as const;
 
-const shortValues = new Map<PaymentTerm, string>([
-  ['cash_on_pickup', 'COP'],
-  ['cash_on_delivery', 'COD'],
-  ['check_on_delivery', 'CKOD'],
-  ['check_on_pickup', 'CKOP'],
-]);
+export type PaymentTerm = typeof PAYMENT_TERMS[number];
 
-export function listPaymentTerms(): PaymentTerm[] {
-  return Array.from(values.keys());
+export function isValidPaymentTerm(input: unknown): input is PaymentTerm {
+  return PAYMENT_TERMS.includes(input as PaymentTerm);
+}
+
+/** @deprecated – use `PAYMENT_TERMS` */
+export function listPaymentTerms(): readonly PaymentTerm[] {
+  return PAYMENT_TERMS;
 }
 
 export interface FormatPaymentTermOptions {
@@ -50,8 +35,27 @@ export interface FormatPaymentTermOptions {
 }
 
 export function formatPaymentTerm(
-  value: PaymentTerm,
+  input: unknown,
   { short = false, fallback = 'Unknown' }: FormatPaymentTermOptions = {},
 ): string {
-  return (short && shortValues.get(value)) || values.get(value) || fallback;
+  if (!isValidPaymentTerm(input)) return fallback;
+
+  switch (input) {
+    case 'ach':
+      return 'ACH';
+    case 'quick_pay':
+      return 'QuickPay';
+
+    case 'cash_on_pickup':
+      return short ? 'COP' : 'Cash on Pickup';
+    case 'cash_on_delivery':
+      return short ? 'COD' : 'Cash on Delivery';
+    case 'check_on_delivery':
+      return short ? 'CKOD' : 'Check on Delivery';
+    case 'check_on_pickup':
+      return short ? 'CKOP' : 'Check on Pickup';
+
+    default:
+      return toStartCase(input);
+  }
 }

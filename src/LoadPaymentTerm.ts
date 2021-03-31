@@ -1,26 +1,27 @@
-export type LoadPaymentTerm =
-  | '5_days'
-  | '7_days'
-  | '10_days'
-  | '15_days'
-  | '20_days'
-  | '30_days'
-  | '45_days'
-  | 'other';
+import { toStartCase } from './internal/toStartCase';
 
-const values = new Map<LoadPaymentTerm, string>([
-  ['5_days', '5 Days'],
-  ['7_days', '7 Days'],
-  ['10_days', '10 Days'],
-  ['15_days', '15 Days'],
-  ['20_days', '20 Days'],
-  ['30_days', '30 Days'],
-  ['45_days', '45 Days'],
-  ['other', 'Other'],
-]);
+export type LoadPaymentTerm = typeof LOAD_PAYMENT_TERMS[number];
 
-export function listLoadPaymentTerms(): LoadPaymentTerm[] {
-  return Array.from(values.keys());
+export const LOAD_PAYMENT_TERMS = [
+  '5_days',
+  '7_days',
+  '10_days',
+  '15_days',
+  '20_days',
+  '30_days',
+  '45_days',
+  'other',
+] as const;
+
+export function isValidLoadPaymentTerm(
+  input: unknown,
+): input is LoadPaymentTerm {
+  return LOAD_PAYMENT_TERMS.includes(input as LoadPaymentTerm);
+}
+
+/** @deprecated – use `LOAD_PAYMENT_TERMS` */
+export function listLoadPaymentTerms(): readonly LoadPaymentTerm[] {
+  return LOAD_PAYMENT_TERMS;
 }
 
 interface FormatLoadPaymentTermOptions {
@@ -28,8 +29,8 @@ interface FormatLoadPaymentTermOptions {
 }
 
 export function formatLoadPaymentTerm(
-  value: LoadPaymentTerm,
+  input: unknown,
   { fallback = 'Unknown' }: FormatLoadPaymentTermOptions = {},
 ): string {
-  return values.get(value) || fallback;
+  return !isValidLoadPaymentTerm(input) ? fallback : toStartCase(input);
 }

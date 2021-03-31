@@ -1,99 +1,102 @@
-import { formatPaymentTerm, listPaymentTerms } from '../PaymentTerm';
-
-it('returns list', () => {
-  expect(listPaymentTerms()).toMatchInlineSnapshot(`
-    Array [
-      "other",
-      "ach",
-      "comchek",
-      "cash_on_pickup",
-      "cash_on_delivery",
-      "quick_pay",
-      "check_on_delivery",
-      "check_on_pickup",
-      "5_days",
-      "7_days",
-      "10_days",
-      "15_days",
-      "20_days",
-      "30_days",
-      "45_days",
-    ]
-  `);
-});
+import { formatPaymentTerm, PAYMENT_TERMS } from '../PaymentTerm';
 
 it('formats known', () => {
-  expect([
-    formatPaymentTerm('other'),
-    formatPaymentTerm('other', { short: true }),
-    formatPaymentTerm('ach'),
-    formatPaymentTerm('ach', { short: true }),
-    formatPaymentTerm('comchek'),
-    formatPaymentTerm('comchek', { short: true }),
-    formatPaymentTerm('cash_on_pickup'),
-    formatPaymentTerm('cash_on_pickup', { short: true }),
-    formatPaymentTerm('cash_on_delivery'),
-    formatPaymentTerm('cash_on_delivery', { short: true }),
-    formatPaymentTerm('quick_pay'),
-    formatPaymentTerm('quick_pay', { short: true }),
-    formatPaymentTerm('check_on_delivery'),
-    formatPaymentTerm('check_on_delivery', { short: true }),
-    formatPaymentTerm('check_on_pickup'),
-    formatPaymentTerm('check_on_pickup', { short: true }),
-    formatPaymentTerm('5_days'),
-    formatPaymentTerm('5_days', { short: true }),
-    formatPaymentTerm('7_days'),
-    formatPaymentTerm('7_days', { short: true }),
-    formatPaymentTerm('10_days'),
-    formatPaymentTerm('10_days', { short: true }),
-    formatPaymentTerm('15_days'),
-    formatPaymentTerm('15_days', { short: true }),
-    formatPaymentTerm('20_days'),
-    formatPaymentTerm('20_days', { short: true }),
-    formatPaymentTerm('30_days'),
-    formatPaymentTerm('30_days', { short: true }),
-    formatPaymentTerm('45_days'),
-    formatPaymentTerm('45_days', { short: true }),
-  ]).toMatchInlineSnapshot(`
+  PAYMENT_TERMS.map((term) => [
+    term,
+    formatPaymentTerm(term),
+    formatPaymentTerm(term, { short: true }),
+  ]);
+
+  expect(
+    PAYMENT_TERMS.map((term) => [
+      term,
+      formatPaymentTerm(term),
+      formatPaymentTerm(term, { short: true }),
+    ]),
+  ).toMatchInlineSnapshot(`
     Array [
-      "Other",
-      "Other",
-      "ACH",
-      "ACH",
-      "Comchek",
-      "Comchek",
-      "Cash on Pickup",
-      "COP",
-      "Cash on Delivery",
-      "COD",
-      "QuickPay",
-      "QuickPay",
-      "Check on Delivery",
-      "CKOD",
-      "Check on Pickup",
-      "CKOP",
-      "5 Days",
-      "5 Days",
-      "7 Days",
-      "7 Days",
-      "10 Days",
-      "10 Days",
-      "15 Days",
-      "15 Days",
-      "20 Days",
-      "20 Days",
-      "30 Days",
-      "30 Days",
-      "45 Days",
-      "45 Days",
+      Array [
+        "other",
+        "Other",
+        "Other",
+      ],
+      Array [
+        "ach",
+        "ACH",
+        "ACH",
+      ],
+      Array [
+        "comchek",
+        "Comchek",
+        "Comchek",
+      ],
+      Array [
+        "cash_on_pickup",
+        "Cash on Pickup",
+        "COP",
+      ],
+      Array [
+        "cash_on_delivery",
+        "Cash on Delivery",
+        "COD",
+      ],
+      Array [
+        "quick_pay",
+        "QuickPay",
+        "QuickPay",
+      ],
+      Array [
+        "check_on_delivery",
+        "Check on Delivery",
+        "CKOD",
+      ],
+      Array [
+        "check_on_pickup",
+        "Check on Pickup",
+        "CKOP",
+      ],
+      Array [
+        "5_days",
+        "5 Days",
+        "5 Days",
+      ],
+      Array [
+        "7_days",
+        "7 Days",
+        "7 Days",
+      ],
+      Array [
+        "10_days",
+        "10 Days",
+        "10 Days",
+      ],
+      Array [
+        "15_days",
+        "15 Days",
+        "15 Days",
+      ],
+      Array [
+        "20_days",
+        "20 Days",
+        "20 Days",
+      ],
+      Array [
+        "30_days",
+        "30 Days",
+        "30 Days",
+      ],
+      Array [
+        "45_days",
+        "45 Days",
+        "45 Days",
+      ],
     ]
   `);
 });
 
 it('formats unknown', () => {
-  expect(formatPaymentTerm('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatPaymentTerm('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatPaymentTerm('FOO')).toMatchInlineSnapshot(`"Unknown"`);
   expect(
-    formatPaymentTerm('BAR' as any, { fallback: 'No info' }),
+    formatPaymentTerm('BAR', { fallback: 'No info' }),
   ).toMatchInlineSnapshot(`"No info"`);
 });

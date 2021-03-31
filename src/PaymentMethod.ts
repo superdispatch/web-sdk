@@ -1,26 +1,25 @@
-export type PaymentMethod =
-  | 'cash'
-  | 'check'
-  | 'cashiers_check'
-  | 'money_order'
-  | 'comchek'
-  | 'credit_card'
-  | 'direct_deposit'
-  | 'other';
+import { toStartCase } from './internal/toStartCase';
 
-const values = new Map<PaymentMethod, string>([
-  ['cash', 'Cash'],
-  ['check', 'Check'],
-  ['cashiers_check', 'Cashiers Check'],
-  ['money_order', 'Money Order'],
-  ['comchek', 'Comchek'],
-  ['credit_card', 'Credit Card'],
-  ['direct_deposit', 'Direct Deposit'],
-  ['other', 'Other'],
-]);
+export const PAYMENT_METHODS = [
+  'cash',
+  'check',
+  'cashiers_check',
+  'money_order',
+  'comchek',
+  'credit_card',
+  'direct_deposit',
+  'other',
+] as const;
 
-export function listPaymentMethods(): PaymentMethod[] {
-  return Array.from(values.keys());
+export type PaymentMethod = typeof PAYMENT_METHODS[number];
+
+export function isValidPaymentMethod(input: unknown): input is PaymentMethod {
+  return PAYMENT_METHODS.includes(input as PaymentMethod);
+}
+
+/** @deprecated – use `PAYMENT_METHODS` */
+export function listPaymentMethods(): readonly PaymentMethod[] {
+  return PAYMENT_METHODS;
 }
 
 interface FormatPaymentMethodOptions {
@@ -28,8 +27,8 @@ interface FormatPaymentMethodOptions {
 }
 
 export function formatPaymentMethod(
-  value: PaymentMethod,
+  input: unknown,
   { fallback = 'Unknown' }: FormatPaymentMethodOptions = {},
 ): string {
-  return values.get(value) || fallback;
+  return !isValidPaymentMethod(input) ? fallback : toStartCase(input);
 }

@@ -1,81 +1,92 @@
-import { formatVehicleType, listVehicleTypes } from '../VehicleType';
-
-it('returns list', () => {
-  expect(listVehicleTypes()).toMatchInlineSnapshot(`
-    Array [
-      "sedan",
-      "2_door_coupe",
-      "suv",
-      "pickup",
-      "4_door_pickup",
-      "van",
-      "truck_daycab",
-      "truck_sleeper",
-      "motorcycle",
-      "boat",
-      "rv",
-      "heavy_machinery",
-      "freight",
-      "livestock",
-      "atv",
-      "trailer_bumper_pull",
-      "trailer_gooseneck",
-      "trailer_5th_wheel",
-      "other",
-    ]
-  `);
-});
+import { formatVehicleType, VEHICLE_TYPES } from '../VehicleType';
 
 it('formats known', () => {
-  expect([
-    formatVehicleType('sedan'),
-    formatVehicleType('2_door_coupe'),
-    formatVehicleType('suv'),
-    formatVehicleType('pickup'),
-    formatVehicleType('4_door_pickup'),
-    formatVehicleType('van'),
-    formatVehicleType('truck_daycab'),
-    formatVehicleType('truck_sleeper'),
-    formatVehicleType('motorcycle'),
-    formatVehicleType('boat'),
-    formatVehicleType('rv'),
-    formatVehicleType('heavy_machinery'),
-    formatVehicleType('freight'),
-    formatVehicleType('livestock'),
-    formatVehicleType('atv'),
-    formatVehicleType('trailer_bumper_pull'),
-    formatVehicleType('trailer_gooseneck'),
-    formatVehicleType('trailer_5th_wheel'),
-    formatVehicleType('other'),
-  ]).toMatchInlineSnapshot(`
+  expect(VEHICLE_TYPES.map((type) => [type, formatVehicleType(type)]))
+    .toMatchInlineSnapshot(`
     Array [
-      "Sedan",
-      "Coupe (2 doors)",
-      "SUV",
-      "Pickup (2 doors)",
-      "Pickup (4 doors)",
-      "Van",
-      "Truck (daycab)",
-      "Truck (with sleeper)",
-      "Motorcycle",
-      "Boat",
-      "RV",
-      "Heavy Machinery",
-      "Freight",
-      "Livestock",
-      "ATV",
-      "Trailer (Bumper Pull)",
-      "Trailer (Gooseneck)",
-      "Trailer (5th Wheel)",
-      "Other",
+      Array [
+        "sedan",
+        "Sedan",
+      ],
+      Array [
+        "2_door_coupe",
+        "Coupe (2 doors)",
+      ],
+      Array [
+        "suv",
+        "SUV",
+      ],
+      Array [
+        "pickup",
+        "Pickup (2 doors)",
+      ],
+      Array [
+        "4_door_pickup",
+        "Pickup (4 doors)",
+      ],
+      Array [
+        "van",
+        "Van",
+      ],
+      Array [
+        "truck_daycab",
+        "Truck (daycab)",
+      ],
+      Array [
+        "truck_sleeper",
+        "Truck (with sleeper)",
+      ],
+      Array [
+        "motorcycle",
+        "Motorcycle",
+      ],
+      Array [
+        "boat",
+        "Boat",
+      ],
+      Array [
+        "rv",
+        "RV",
+      ],
+      Array [
+        "heavy_machinery",
+        "Heavy Machinery",
+      ],
+      Array [
+        "freight",
+        "Freight",
+      ],
+      Array [
+        "livestock",
+        "Livestock",
+      ],
+      Array [
+        "atv",
+        "ATV",
+      ],
+      Array [
+        "trailer_bumper_pull",
+        "Trailer (Bumper Pull)",
+      ],
+      Array [
+        "trailer_gooseneck",
+        "Trailer (Gooseneck)",
+      ],
+      Array [
+        "trailer_5th_wheel",
+        "Trailer (5th Wheel)",
+      ],
+      Array [
+        "other",
+        "Other",
+      ],
     ]
   `);
 });
 
 it('formats unknown', () => {
-  expect(formatVehicleType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatVehicleType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatVehicleType('FOO')).toMatchInlineSnapshot(`"Unknown"`);
   expect(
-    formatVehicleType('BAR' as any, { fallback: 'No info' }),
+    formatVehicleType('BAR', { fallback: 'No info' }),
   ).toMatchInlineSnapshot(`"No info"`);
 });

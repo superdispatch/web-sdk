@@ -1,22 +1,23 @@
-export type CustomerType =
-  | 'BUSINESS'
-  | 'DEALER'
-  | 'PRIVATE'
-  | 'AUCTION'
-  | 'REPO_YARD'
-  | 'PORT';
+import { toStartCase } from './internal/toStartCase';
 
-const values = new Map<CustomerType, string>([
-  ['BUSINESS', 'Business'],
-  ['DEALER', 'Dealer'],
-  ['PRIVATE', 'Private'],
-  ['AUCTION', 'Auction'],
-  ['REPO_YARD', 'Repo Yard'],
-  ['PORT', 'Port'],
-]);
+export type CustomerType = typeof CUSTOMER_TYPES[number];
 
-export function listCustomerTypes(): CustomerType[] {
-  return Array.from(values.keys());
+export const CUSTOMER_TYPES = [
+  'BUSINESS',
+  'DEALER',
+  'PRIVATE',
+  'AUCTION',
+  'REPO_YARD',
+  'PORT',
+] as const;
+
+export function isValidCustomerType(input: unknown): input is CustomerType {
+  return CUSTOMER_TYPES.includes(input as CustomerType);
+}
+
+/** @deprecated – use `CUSTOMER_TYPES` */
+export function listCustomerTypes(): readonly CustomerType[] {
+  return CUSTOMER_TYPES;
 }
 
 interface FormatCustomerTypeOptions {
@@ -24,8 +25,8 @@ interface FormatCustomerTypeOptions {
 }
 
 export function formatCustomerType(
-  value: CustomerType,
+  input: unknown,
   { fallback = 'Unknown' }: FormatCustomerTypeOptions = {},
 ): string {
-  return values.get(value) || fallback;
+  return !isValidCustomerType(input) ? fallback : toStartCase(input);
 }

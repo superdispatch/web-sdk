@@ -1,36 +1,32 @@
-import { formatDateType, listDateTypes } from '../DateType';
-
-it('returns list', () => {
-  expect(listDateTypes()).toMatchInlineSnapshot(`
-    Array [
-      "estimated",
-      "exact",
-      "not_earlier_than",
-      "not_later_than",
-    ]
-  `);
-});
+import { DATE_TYPES, formatDateType } from '../DateType';
 
 it('formats known', () => {
-  expect([
-    formatDateType('estimated'),
-    formatDateType('exact'),
-    formatDateType('not_earlier_than'),
-    formatDateType('not_later_than'),
-  ]).toMatchInlineSnapshot(`
+  expect(DATE_TYPES.map((type) => [type, formatDateType(type)]))
+    .toMatchInlineSnapshot(`
     Array [
-      "Estimated",
-      "Exactly",
-      "No Earlier than",
-      "No Later than",
+      Array [
+        "estimated",
+        "Estimated",
+      ],
+      Array [
+        "exact",
+        "Exact",
+      ],
+      Array [
+        "not_earlier_than",
+        "No Earlier than",
+      ],
+      Array [
+        "not_later_than",
+        "No Later than",
+      ],
     ]
   `);
 });
 
 it('formats unknown', () => {
-  expect(formatDateType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatDateType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(
-    formatDateType('BAR' as any, { fallback: 'No info' }),
-  ).toMatchInlineSnapshot(`"No info"`);
+  expect(formatDateType('FOO')).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatDateType('BAR', { fallback: 'No info' })).toMatchInlineSnapshot(
+    `"No info"`,
+  );
 });

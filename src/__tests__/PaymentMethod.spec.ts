@@ -1,48 +1,48 @@
-import { formatPaymentMethod, listPaymentMethods } from '../PaymentMethod';
-
-it('returns list', () => {
-  expect(listPaymentMethods()).toMatchInlineSnapshot(`
-    Array [
-      "cash",
-      "check",
-      "cashiers_check",
-      "money_order",
-      "comchek",
-      "credit_card",
-      "direct_deposit",
-      "other",
-    ]
-  `);
-});
+import { formatPaymentMethod, PAYMENT_METHODS } from '../PaymentMethod';
 
 it('formats known', () => {
-  expect([
-    formatPaymentMethod('cash'),
-    formatPaymentMethod('check'),
-    formatPaymentMethod('cashiers_check'),
-    formatPaymentMethod('money_order'),
-    formatPaymentMethod('comchek'),
-    formatPaymentMethod('credit_card'),
-    formatPaymentMethod('direct_deposit'),
-    formatPaymentMethod('other'),
-  ]).toMatchInlineSnapshot(`
+  expect(PAYMENT_METHODS.map((method) => [method, formatPaymentMethod(method)]))
+    .toMatchInlineSnapshot(`
     Array [
-      "Cash",
-      "Check",
-      "Cashiers Check",
-      "Money Order",
-      "Comchek",
-      "Credit Card",
-      "Direct Deposit",
-      "Other",
+      Array [
+        "cash",
+        "Cash",
+      ],
+      Array [
+        "check",
+        "Check",
+      ],
+      Array [
+        "cashiers_check",
+        "Cashiers Check",
+      ],
+      Array [
+        "money_order",
+        "Money Order",
+      ],
+      Array [
+        "comchek",
+        "Comchek",
+      ],
+      Array [
+        "credit_card",
+        "Credit Card",
+      ],
+      Array [
+        "direct_deposit",
+        "Direct Deposit",
+      ],
+      Array [
+        "other",
+        "Other",
+      ],
     ]
   `);
 });
 
 it('formats unknown', () => {
-  expect(formatPaymentMethod('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatPaymentMethod('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatPaymentMethod('FOO')).toMatchInlineSnapshot(`"Unknown"`);
   expect(
-    formatPaymentMethod('BAR' as any, { fallback: 'No info' }),
+    formatPaymentMethod('BAR', { fallback: 'No info' }),
   ).toMatchInlineSnapshot(`"No info"`);
 });

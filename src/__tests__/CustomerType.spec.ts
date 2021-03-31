@@ -1,42 +1,40 @@
-import { formatCustomerType, listCustomerTypes } from '../CustomerType';
-
-it('returns list', () => {
-  expect(listCustomerTypes()).toMatchInlineSnapshot(`
-    Array [
-      "BUSINESS",
-      "DEALER",
-      "PRIVATE",
-      "AUCTION",
-      "REPO_YARD",
-      "PORT",
-    ]
-  `);
-});
+import { CUSTOMER_TYPES, formatCustomerType } from '../CustomerType';
 
 it('formats known', () => {
-  expect([
-    formatCustomerType('BUSINESS'),
-    formatCustomerType('DEALER'),
-    formatCustomerType('PRIVATE'),
-    formatCustomerType('AUCTION'),
-    formatCustomerType('REPO_YARD'),
-    formatCustomerType('PORT'),
-  ]).toMatchInlineSnapshot(`
+  expect(CUSTOMER_TYPES.map((type) => [type, formatCustomerType(type)]))
+    .toMatchInlineSnapshot(`
     Array [
-      "Business",
-      "Dealer",
-      "Private",
-      "Auction",
-      "Repo Yard",
-      "Port",
+      Array [
+        "BUSINESS",
+        "Business",
+      ],
+      Array [
+        "DEALER",
+        "Dealer",
+      ],
+      Array [
+        "PRIVATE",
+        "Private",
+      ],
+      Array [
+        "AUCTION",
+        "Auction",
+      ],
+      Array [
+        "REPO_YARD",
+        "Repo Yard",
+      ],
+      Array [
+        "PORT",
+        "Port",
+      ],
     ]
   `);
 });
 
 it('formats unknown', () => {
-  expect(formatCustomerType('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatCustomerType('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatCustomerType('FOO')).toMatchInlineSnapshot(`"Unknown"`);
   expect(
-    formatCustomerType('BAR' as any, { fallback: 'No info' }),
+    formatCustomerType('BAR', { fallback: 'No info' }),
   ).toMatchInlineSnapshot(`"No info"`);
 });

@@ -1,18 +1,21 @@
-export type DateType =
-  | 'estimated'
-  | 'exact'
-  | 'not_earlier_than'
-  | 'not_later_than';
+import { toStartCase } from './internal/toStartCase';
 
-const values = new Map<DateType, string>([
-  ['estimated', 'Estimated'],
-  ['exact', 'Exactly'],
-  ['not_earlier_than', 'No Earlier than'],
-  ['not_later_than', 'No Later than'],
-]);
+export type DateType = typeof DATE_TYPES[number];
 
-export function listDateTypes(): DateType[] {
-  return Array.from(values.keys());
+export const DATE_TYPES = [
+  'estimated',
+  'exact',
+  'not_earlier_than',
+  'not_later_than',
+] as const;
+
+export function isValidDateType(input: unknown): input is DateType {
+  return DATE_TYPES.includes(input as DateType);
+}
+
+/** @deprecated – use `DATE_TYPES` */
+export function listDateTypes(): readonly DateType[] {
+  return DATE_TYPES;
 }
 
 interface FormatDateTypeOptions {
@@ -20,8 +23,17 @@ interface FormatDateTypeOptions {
 }
 
 export function formatDateType(
-  value: DateType,
+  input: unknown,
   { fallback = 'Unknown' }: FormatDateTypeOptions = {},
 ): string {
-  return values.get(value) || fallback;
+  if (!isValidDateType(input)) return fallback;
+
+  switch (input) {
+    case 'not_earlier_than':
+      return 'No Earlier than';
+    case 'not_later_than':
+      return 'No Later than';
+    default:
+      return toStartCase(input);
+  }
 }

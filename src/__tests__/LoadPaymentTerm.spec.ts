@@ -1,52 +1,48 @@
-import {
-  formatLoadPaymentTerm,
-  listLoadPaymentTerms,
-} from '../LoadPaymentTerm';
-import { formatPaymentTerm } from '../PaymentTerm';
-
-it('returns list ofs', () => {
-  expect(listLoadPaymentTerms()).toMatchInlineSnapshot(`
-    Array [
-      "5_days",
-      "7_days",
-      "10_days",
-      "15_days",
-      "20_days",
-      "30_days",
-      "45_days",
-      "other",
-    ]
-  `);
-});
+import { formatLoadPaymentTerm, LOAD_PAYMENT_TERMS } from '../LoadPaymentTerm';
 
 it('formats known', () => {
-  expect([
-    formatLoadPaymentTerm('5_days'),
-    formatLoadPaymentTerm('7_days'),
-    formatLoadPaymentTerm('10_days'),
-    formatLoadPaymentTerm('15_days'),
-    formatLoadPaymentTerm('20_days'),
-    formatLoadPaymentTerm('30_days'),
-    formatLoadPaymentTerm('45_days'),
-    formatLoadPaymentTerm('other'),
-  ]).toMatchInlineSnapshot(`
+  expect(LOAD_PAYMENT_TERMS.map((term) => [term, formatLoadPaymentTerm(term)]))
+    .toMatchInlineSnapshot(`
     Array [
-      "5 Days",
-      "7 Days",
-      "10 Days",
-      "15 Days",
-      "20 Days",
-      "30 Days",
-      "45 Days",
-      "Other",
+      Array [
+        "5_days",
+        "5 Days",
+      ],
+      Array [
+        "7_days",
+        "7 Days",
+      ],
+      Array [
+        "10_days",
+        "10 Days",
+      ],
+      Array [
+        "15_days",
+        "15 Days",
+      ],
+      Array [
+        "20_days",
+        "20 Days",
+      ],
+      Array [
+        "30_days",
+        "30 Days",
+      ],
+      Array [
+        "45_days",
+        "45 Days",
+      ],
+      Array [
+        "other",
+        "Other",
+      ],
     ]
   `);
 });
 
 it('formats unknown', () => {
-  expect(formatPaymentTerm('FOO' as any)).toMatchInlineSnapshot(`"Unknown"`);
-  expect(formatPaymentTerm('BAR' as any)).toMatchInlineSnapshot(`"Unknown"`);
+  expect(formatLoadPaymentTerm('FOO')).toMatchInlineSnapshot(`"Unknown"`);
   expect(
-    formatPaymentTerm('BAR' as any, { fallback: 'No info' }),
+    formatLoadPaymentTerm('BAR', { fallback: 'No info' }),
   ).toMatchInlineSnapshot(`"No info"`);
 });

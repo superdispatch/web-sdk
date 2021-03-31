@@ -1,48 +1,36 @@
-export type VehicleType =
-  | 'sedan'
-  | '2_door_coupe'
-  | 'suv'
-  | 'pickup'
-  | '4_door_pickup'
-  | 'van'
-  | 'truck_daycab'
-  | 'truck_sleeper'
-  | 'motorcycle'
-  | 'boat'
-  | 'rv'
-  | 'heavy_machinery'
-  | 'freight'
-  | 'livestock'
-  | 'atv'
-  | 'trailer_bumper_pull'
-  | 'trailer_gooseneck'
-  | 'trailer_5th_wheel'
-  | 'other';
+import { toStartCase } from './internal/toStartCase';
 
-const values = new Map<VehicleType, string>([
-  ['sedan', 'Sedan'],
-  ['2_door_coupe', 'Coupe (2 doors)'],
-  ['suv', 'SUV'],
-  ['pickup', 'Pickup (2 doors)'],
-  ['4_door_pickup', 'Pickup (4 doors)'],
-  ['van', 'Van'],
-  ['truck_daycab', 'Truck (daycab)'],
-  ['truck_sleeper', 'Truck (with sleeper)'],
-  ['motorcycle', 'Motorcycle'],
-  ['boat', 'Boat'],
-  ['rv', 'RV'],
-  ['heavy_machinery', 'Heavy Machinery'],
-  ['freight', 'Freight'],
-  ['livestock', 'Livestock'],
-  ['atv', 'ATV'],
-  ['trailer_bumper_pull', 'Trailer (Bumper Pull)'],
-  ['trailer_gooseneck', 'Trailer (Gooseneck)'],
-  ['trailer_5th_wheel', 'Trailer (5th Wheel)'],
-  ['other', 'Other'],
-]);
+export type VehicleType = typeof VEHICLE_TYPES[number];
 
-export function listVehicleTypes(): VehicleType[] {
-  return Array.from(values.keys());
+export const VEHICLE_TYPES = [
+  'sedan',
+  '2_door_coupe',
+  'suv',
+  'pickup',
+  '4_door_pickup',
+  'van',
+  'truck_daycab',
+  'truck_sleeper',
+  'motorcycle',
+  'boat',
+  'rv',
+  'heavy_machinery',
+  'freight',
+  'livestock',
+  'atv',
+  'trailer_bumper_pull',
+  'trailer_gooseneck',
+  'trailer_5th_wheel',
+  'other',
+] as const;
+
+export function isValidVehicleType(input: unknown): input is VehicleType {
+  return VEHICLE_TYPES.includes(input as VehicleType);
+}
+
+/** @deprecated – use `VEHICLE_TYPES` */
+export function listVehicleTypes(): readonly VehicleType[] {
+  return VEHICLE_TYPES;
 }
 
 interface FormatVehicleTypeOptions {
@@ -50,8 +38,38 @@ interface FormatVehicleTypeOptions {
 }
 
 export function formatVehicleType(
-  value: VehicleType,
+  input: unknown,
   { fallback = 'Unknown' }: FormatVehicleTypeOptions = {},
 ): string {
-  return values.get(value) || fallback;
+  if (!isValidVehicleType(input)) return fallback;
+
+  switch (input) {
+    case '2_door_coupe':
+      return 'Coupe (2 doors)';
+
+    case 'pickup':
+      return 'Pickup (2 doors)';
+    case '4_door_pickup':
+      return 'Pickup (4 doors)';
+
+    case 'truck_daycab':
+      return 'Truck (daycab)';
+    case 'truck_sleeper':
+      return 'Truck (with sleeper)';
+
+    case 'trailer_bumper_pull':
+      return 'Trailer (Bumper Pull)';
+    case 'trailer_gooseneck':
+      return 'Trailer (Gooseneck)';
+    case 'trailer_5th_wheel':
+      return 'Trailer (5th Wheel)';
+
+    case 'rv':
+    case 'atv':
+    case 'suv':
+      return input.toUpperCase();
+
+    default:
+      return toStartCase(input);
+  }
 }
