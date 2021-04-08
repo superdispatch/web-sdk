@@ -33,6 +33,22 @@ it('formats known', () => {
         "Direct Deposit",
       ],
       Array [
+        "venmo",
+        "Venmo",
+      ],
+      Array [
+        "cashapp",
+        "CashApp",
+      ],
+      Array [
+        "uship",
+        "UShip",
+      ],
+      Array [
+        "zelle",
+        "Zelle",
+      ],
+      Array [
         "other",
         "Other",
       ],

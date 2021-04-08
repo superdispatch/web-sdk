@@ -49,6 +49,10 @@ it('exports public api', () => {
         "comchek",
         "credit_card",
         "direct_deposit",
+        "venmo",
+        "cashapp",
+        "uship",
+        "zelle",
         "other",
       ],
       "PAYMENT_TERMS": Array [
