@@ -8,6 +8,10 @@ export const PAYMENT_METHODS = [
   'comchek',
   'credit_card',
   'direct_deposit',
+  'venmo',
+  'cashapp',
+  'uship',
+  'zelle',
   'other',
 ] as const;
 
@@ -30,5 +34,14 @@ export function formatPaymentMethod(
   input: unknown,
   { fallback = 'Unknown' }: FormatPaymentMethodOptions = {},
 ): string {
-  return !isValidPaymentMethod(input) ? fallback : toStartCase(input);
+  if (!isValidPaymentMethod(input)) return fallback;
+
+  switch (input) {
+    case 'cashapp':
+      return 'CashApp';
+    case 'uship':
+      return 'UShip';
+    default:
+      return toStartCase(input);
+  }
 }
