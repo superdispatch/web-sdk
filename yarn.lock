@@ -1437,10 +1437,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@superdispatch/babel-preset@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@superdispatch/babel-preset/-/babel-preset-0.6.0.tgz#009669297b71f3d4cde352478a3ce14c1eaef9bc"
-  integrity sha512-zeeHwTbiW+nisV8J3STfDTOB9LmF7ym96w4WcUbprfmUvm0VW752lIh6+DKhxbfVgxgY94YkSkm/Qn03najmuw==
+"@superdispatch/babel-preset@0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@superdispatch/babel-preset/-/babel-preset-0.7.0.tgz#b251c1c0e8a2448641c4ff36747e2c44d589f0ca"
+  integrity sha512-bgv8IUTp+axvvypdq/k08AO1wPvMKcUMB02nBJtoXWRvkNqQ+JUMgcJGiPt98IMA7PoqDRVdhXkr2BI1HhRm8Q==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
