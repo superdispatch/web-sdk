@@ -39,7 +39,7 @@
     "@superdispatch/js-tools": "0.7.0",
     "@superdispatch/prettier-config": "0.7.0",
     "@superdispatch/tsconfig": "0.7.0",
-    "@types/jest": "27.0.3",
+    "@types/jest": "27.4.0",
     "eslint": "8.5.0",
     "jest": "27.4.5",
     "prettier": "2.5.1",
