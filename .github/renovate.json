@@ -1,3 +1,4 @@
 {
-  "extends": ["github>superdispatch/js-tools:renovate-config", "config:js-lib"]
+  "extends": ["github>superdispatch/js-tools:renovate-config", "config:js-lib"],
+  "reviewers": ["doniyor2109"]
 }
