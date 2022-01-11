@@ -9,9 +9,9 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "yarn pika build",
+    "lint": "js-tools lint",
     "prerelease": "yarn --force && yarn lint && yarn tsc && yarn build",
     "release": "yarn pika publish",
-    "lint": "js-tools lint",
     "tdd": "jest --watch",
     "test": "jest --coverage",
     "version": "yarn build"
