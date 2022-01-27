@@ -20,8 +20,8 @@ it('formats known', () => {
         "QuickPay",
       ],
       Array [
-        "comcheck",
-        "COMcheck",
+        "comchek",
+        "Comchek",
       ],
       Array [
         "cop",
