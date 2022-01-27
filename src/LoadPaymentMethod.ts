@@ -5,7 +5,7 @@ export type LoadPaymentMethod = typeof LOAD_PAYMENT_METHODS[number];
 export const LOAD_PAYMENT_METHODS = [
   'cod',
   'quickpay',
-  'comcheck',
+  'comchek',
   'cop',
   'ckod',
   'ach',
@@ -41,8 +41,8 @@ export function formatLoadPaymentMethod(
   switch (input) {
     case 'quickpay':
       return 'QuickPay';
-    case 'comcheck':
-      return 'COMcheck';
+    case 'comchek':
+      return 'Comchek';
     case 'cashapp':
       return 'CashApp';
     case 'uship':

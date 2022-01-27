@@ -20,7 +20,7 @@ it('exports public api', () => {
       "LOAD_PAYMENT_METHODS": Array [
         "cod",
         "quickpay",
-        "comcheck",
+        "comchek",
         "cop",
         "ckod",
         "ach",
