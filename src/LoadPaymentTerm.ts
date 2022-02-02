@@ -10,6 +10,7 @@ export const LOAD_PAYMENT_TERMS = [
   '20_days',
   '30_days',
   '45_days',
+  '60_days',
   'other',
 ] as const;
 

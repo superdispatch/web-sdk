@@ -16,6 +16,7 @@ export const PAYMENT_TERMS = [
   '20_days',
   '30_days',
   '45_days',
+  '60_days',
 ] as const;
 
 export type PaymentTerm = typeof PAYMENT_TERMS[number];
