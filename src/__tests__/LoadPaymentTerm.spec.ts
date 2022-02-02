@@ -33,6 +33,10 @@ it('formats known', () => {
         "45 Days",
       ],
       Array [
+        "60_days",
+        "60 Days",
+      ],
+      Array [
         "other",
         "Other",
       ],

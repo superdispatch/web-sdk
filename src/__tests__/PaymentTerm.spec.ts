@@ -90,6 +90,11 @@ it('formats known', () => {
         "45 Days",
         "45 Days",
       ],
+      Array [
+        "60_days",
+        "60 Days",
+        "60 Days",
+      ],
     ]
   `);
 });

@@ -39,6 +39,7 @@ it('exports public api', () => {
         "20_days",
         "30_days",
         "45_days",
+        "60_days",
         "other",
       ],
       "PAYMENT_METHODS": Array [
@@ -71,6 +72,7 @@ it('exports public api', () => {
         "20_days",
         "30_days",
         "45_days",
+        "60_days",
       ],
       "VEHICLE_TYPES": Array [
         "sedan",
