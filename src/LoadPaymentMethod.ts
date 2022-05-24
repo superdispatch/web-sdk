@@ -14,6 +14,7 @@ export const LOAD_PAYMENT_METHODS = [
   'cashapp',
   'uship',
   'zelle',
+  'superpay',
   'other',
 ] as const;
 
@@ -47,6 +48,8 @@ export function formatLoadPaymentMethod(
       return 'CashApp';
     case 'uship':
       return 'UShip';
+    case 'superpay':
+      return 'SuperPay';
 
     case 'cod':
     case 'cop':

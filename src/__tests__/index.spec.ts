@@ -29,6 +29,7 @@ it('exports public api', () => {
         "cashapp",
         "uship",
         "zelle",
+        "superpay",
         "other",
       ],
       "LOAD_PAYMENT_TERMS": Array [
