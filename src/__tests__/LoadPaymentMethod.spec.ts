@@ -56,6 +56,10 @@ it('formats known', () => {
         "Zelle",
       ],
       Array [
+        "superpay",
+        "SuperPay",
+      ],
+      Array [
         "other",
         "Other",
       ],
