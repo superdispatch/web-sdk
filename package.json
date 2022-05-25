@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/sdk",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "private": false,
   "description": "Super Dispatch JavaScript SDK",
   "repository": "git@github.com:superdispatch/sdk.git",
