@@ -12,6 +12,7 @@ export const PAYMENT_METHODS = [
   'cashapp',
   'uship',
   'zelle',
+  'superpay',
   'other',
 ] as const;
 
@@ -41,6 +42,8 @@ export function formatPaymentMethod(
       return 'CashApp';
     case 'uship':
       return 'UShip';
+    case 'superpay':
+      return 'SuperPay';
     default:
       return toStartCase(input);
   }

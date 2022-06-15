@@ -2,6 +2,7 @@ import { toStartCase } from './internal/toStartCase';
 
 export const PAYMENT_TERMS = [
   'other',
+  'superpay',
   'ach',
   'comchek',
   'cash_on_pickup',
@@ -46,6 +47,8 @@ export function formatPaymentTerm(
       return 'ACH';
     case 'quick_pay':
       return 'QuickPay';
+    case 'superpay':
+      return 'SuperPay';
 
     case 'cash_on_pickup':
       return short ? 'COP' : 'Cash on Pickup';
