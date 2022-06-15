@@ -1,6 +1,7 @@
 import { toStartCase } from './internal/toStartCase';
 
 export const PAYMENT_METHODS = [
+  'superpay',
   'cash',
   'check',
   'cashiers_check',
@@ -41,6 +42,8 @@ export function formatPaymentMethod(
       return 'CashApp';
     case 'uship':
       return 'UShip';
+    case 'superpay':
+      return 'SuperPay';
     default:
       return toStartCase(input);
   }
