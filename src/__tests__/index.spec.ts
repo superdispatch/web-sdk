@@ -44,6 +44,7 @@ it('exports public api', () => {
         "other",
       ],
       "PAYMENT_METHODS": Array [
+        "superpay",
         "cash",
         "check",
         "cashiers_check",
@@ -59,6 +60,7 @@ it('exports public api', () => {
       ],
       "PAYMENT_TERMS": Array [
         "other",
+        "superpay",
         "ach",
         "comchek",
         "cash_on_pickup",

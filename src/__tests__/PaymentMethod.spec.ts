@@ -5,6 +5,10 @@ it('formats known', () => {
     .toMatchInlineSnapshot(`
     Array [
       Array [
+        "superpay",
+        "SuperPay",
+      ],
+      Array [
         "cash",
         "Cash",
       ],

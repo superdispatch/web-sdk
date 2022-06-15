@@ -1,6 +1,7 @@
 import { toStartCase } from './internal/toStartCase';
 
 export const PAYMENT_METHODS = [
+  'superpay',
   'cash',
   'check',
   'cashiers_check',
@@ -12,7 +13,6 @@ export const PAYMENT_METHODS = [
   'cashapp',
   'uship',
   'zelle',
-  'superpay',
   'other',
 ] as const;
 
