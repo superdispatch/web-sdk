@@ -73,7 +73,7 @@ export function formatPaymentTerm(
       return short ? '30 Days' : '30 Business Days';
     case '45_days':
       return short ? '45 Days' : '45 Business Days';
-    case '60_days':
+    case '60_days': 
       return short ? '60 Days' : '60 Business Days';
 
     default:
