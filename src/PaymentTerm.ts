@@ -58,7 +58,7 @@ export function formatPaymentTerm(
       return short ? 'CKOD' : 'Check on Delivery';
     case 'check_on_pickup':
       return short ? 'CKOP' : 'Check on Pickup';
-    
+
     case '5_days':
       return short ? '5 Days' : '5 Business Days';
     case '7_days':
@@ -73,7 +73,7 @@ export function formatPaymentTerm(
       return short ? '30 Days' : '30 Business Days';
     case '45_days':
       return short ? '45 Days' : '45 Business Days';
-    case '60_days': 
+    case '60_days':
       return short ? '60 Days' : '60 Business Days';
 
     default:
