@@ -35,7 +35,7 @@ export function formatLoadPaymentTerm(
 ): string {
   if (!isValidLoadPaymentTerm(input)) return fallback;
 
-  switch(input) {
+  switch (input) {
     case '5_days':
       return '5 Business Days';
     case '7_days':
