@@ -33,5 +33,27 @@ export function formatLoadPaymentTerm(
   input: unknown,
   { fallback = 'Unknown' }: FormatLoadPaymentTermOptions = {},
 ): string {
-  return !isValidLoadPaymentTerm(input) ? fallback : toStartCase(input);
+  if (!isValidLoadPaymentTerm(input)) return fallback;
+
+  switch(input) {
+    case '5_days':
+      return '5 Business Days';
+    case '7_days':
+      return '7 Business Days';
+    case '10_days':
+      return '10 Business Days';
+    case '15_days':
+      return '15 Business Days';
+    case '20_days':
+      return '20 Business Days';
+    case '30_days':
+      return '30 Business Days';
+    case '45_days':
+      return '45 Business Days';
+    case '60_days':
+      return '60 Business Days';
+
+    default:
+      return toStartCase(input);
+  }
 }
