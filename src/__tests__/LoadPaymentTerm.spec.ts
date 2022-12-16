@@ -6,35 +6,35 @@ it('formats known', () => {
     Array [
       Array [
         "5_days",
-        "5 Days",
+        "5 Business Days",
       ],
       Array [
         "7_days",
-        "7 Days",
+        "7 Business Days",
       ],
       Array [
         "10_days",
-        "10 Days",
+        "10 Business Days",
       ],
       Array [
         "15_days",
-        "15 Days",
+        "15 Business Days",
       ],
       Array [
         "20_days",
-        "20 Days",
+        "20 Business Days",
       ],
       Array [
         "30_days",
-        "30 Days",
+        "30 Business Days",
       ],
       Array [
         "45_days",
-        "45 Days",
+        "45 Business Days",
       ],
       Array [
         "60_days",
-        "60 Days",
+        "60 Business Days",
       ],
       Array [
         "other",
