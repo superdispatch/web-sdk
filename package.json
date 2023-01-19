@@ -19,7 +19,7 @@
   "prettier": "@superdispatch/prettier-config",
   "lint-staged": {
     "*": [
-      "js-tools lint --fix"
+      "js-tools lint --fix --quiet"
     ]
   },
   "jest": {
