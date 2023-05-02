@@ -18,7 +18,7 @@ export interface FormatSuperPayTermOptions {
   fallback?: string;
 }
 
-export function formatPaymentTerm(
+export function formatSuperPayTerm(
   input: unknown,
   { fallback = 'Unknown' }: FormatSuperPayTermOptions = {},
 ): string {
