@@ -1,4 +1,8 @@
-import { formatPaymentTerm, PAYMENT_TERMS } from '../PaymentTerm';
+import {
+  formatPaymentTerm,
+  PAYMENT_TERMS,
+  SUPERPAY_TERMS,
+} from '../PaymentTerm';
 
 it('formats known', () => {
   PAYMENT_TERMS.map((term) => [
@@ -109,4 +113,34 @@ it('formats unknown', () => {
   expect(
     formatPaymentTerm('BAR', { fallback: 'No info' }),
   ).toMatchInlineSnapshot(`"No info"`);
+});
+
+it('formats superpay', () => {
+  SUPERPAY_TERMS.map((term) => [term, formatPaymentTerm(term)]);
+
+  expect(SUPERPAY_TERMS.map((term) => [term, formatPaymentTerm(term)]))
+    .toMatchInlineSnapshot(`
+    Array [
+      Array [
+        "1_3_days",
+        "1-3 Business Days",
+      ],
+      Array [
+        "5_days",
+        "5 Business Days",
+      ],
+      Array [
+        "10_days",
+        "10 Business Days",
+      ],
+      Array [
+        "15_days",
+        "15 Business Days",
+      ],
+      Array [
+        "20_days",
+        "20 Business Days",
+      ],
+    ]
+  `);
 });

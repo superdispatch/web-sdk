@@ -77,6 +77,13 @@ it('exports public api', () => {
         "45_days",
         "60_days",
       ],
+      "SUPERPAY_TERMS": Array [
+        "1_3_days",
+        "5_days",
+        "10_days",
+        "15_days",
+        "20_days",
+      ],
       "VEHICLE_TYPES": Array [
         "sedan",
         "2_door_coupe",
@@ -111,6 +118,7 @@ it('exports public api', () => {
       "isValidLoadPaymentTerm": [Function],
       "isValidPaymentMethod": [Function],
       "isValidPaymentTerm": [Function],
+      "isValidSuperPayTerm": [Function],
       "isValidVehicleType": [Function],
       "listCustomerTypes": [Function],
       "listDateTypes": [Function],
