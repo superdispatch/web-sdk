@@ -22,8 +22,22 @@ export const PAYMENT_TERMS = [
 
 export type PaymentTerm = typeof PAYMENT_TERMS[number];
 
+export const SUPERPAY_TERMS = [
+  '1_3_days',
+  '5_days',
+  '10_days',
+  '15_days',
+  '20_days',
+] as const;
+
+export type SuperPayTerm = typeof SUPERPAY_TERMS[number];
+
 export function isValidPaymentTerm(input: unknown): input is PaymentTerm {
   return PAYMENT_TERMS.includes(input as PaymentTerm);
+}
+
+export function isValidSuperPayTerm(input: unknown): input is SuperPayTerm {
+  return SUPERPAY_TERMS.includes(input as SuperPayTerm);
 }
 
 /** @deprecated – use `PAYMENT_TERMS` */
@@ -40,7 +54,9 @@ export function formatPaymentTerm(
   input: unknown,
   { short = false, fallback = 'Unknown' }: FormatPaymentTermOptions = {},
 ): string {
-  if (!isValidPaymentTerm(input)) return fallback;
+  if (!isValidPaymentTerm(input) && !isValidSuperPayTerm(input)) {
+    return fallback;
+  }
 
   switch (input) {
     case 'ach':
@@ -59,6 +75,8 @@ export function formatPaymentTerm(
     case 'check_on_pickup':
       return short ? 'CKOP' : 'Check on Pickup';
 
+    case '1_3_days':
+      return '1-3 Business Days';
     case '5_days':
       return '5 Business Days';
     case '7_days':
