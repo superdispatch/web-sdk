@@ -28,6 +28,10 @@ it('formats known', () => {
         "PORT",
         "Port",
       ],
+      Array [
+        "CAR_RENTAL",
+        "Car Rental",
+      ],
     ]
   `);
 });
