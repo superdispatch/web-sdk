@@ -9,6 +9,7 @@ export const CUSTOMER_TYPES = [
   'AUCTION',
   'REPO_YARD',
   'PORT',
+  'CAR_RENTAL',
 ] as const;
 
 export function isValidCustomerType(input: unknown): input is CustomerType {

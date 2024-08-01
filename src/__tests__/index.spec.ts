@@ -10,6 +10,7 @@ it('exports public api', () => {
         "AUCTION",
         "REPO_YARD",
         "PORT",
+        "CAR_RENTAL",
       ],
       "DATE_TYPES": Array [
         "estimated",
