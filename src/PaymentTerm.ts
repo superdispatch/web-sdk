@@ -28,6 +28,7 @@ export const SUPERPAY_TERMS = [
   '10_days',
   '15_days',
   '20_days',
+  '30_days',
 ] as const;
 
 export type SuperPayTerm = typeof SUPERPAY_TERMS[number];

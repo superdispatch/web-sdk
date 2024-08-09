@@ -141,6 +141,10 @@ it('formats superpay', () => {
         "20_days",
         "20 Business Days",
       ],
+      Array [
+        "30_days",
+        "30 Business Days",
+      ],
     ]
   `);
 });

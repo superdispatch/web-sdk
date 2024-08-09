@@ -84,6 +84,7 @@ it('exports public api', () => {
         "10_days",
         "15_days",
         "20_days",
+        "30_days",
       ],
       "VEHICLE_TYPES": Array [
         "sedan",
