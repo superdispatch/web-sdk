@@ -3,19 +3,19 @@ import { toStartCase } from './internal/toStartCase';
 export type LoadPaymentMethod = typeof LOAD_PAYMENT_METHODS[number];
 
 export const LOAD_PAYMENT_METHODS = [
-  'cod',
-  'quickpay',
-  'comchek',
-  'cop',
-  'ckod',
-  'ach',
-  'factoring',
-  'venmo',
-  'cashapp',
-  'uship',
-  'zelle',
-  'superpay',
-  'other',
+  'cod', // term
+  'quickpay', // term
+  'comchek', // term
+  'cop', // term
+  'ckod', // term
+  'ach', // term
+  'factoring', // term
+  'venmo', // method
+  'cashapp', // method
+  'uship', // method
+  'zelle', // method
+  'superpay', // method
+  'other', // method
 ] as const;
 
 export function isValidLoadPaymentMethod(

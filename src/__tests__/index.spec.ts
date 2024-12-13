@@ -3,6 +3,25 @@ import * as api from '../index';
 it('exports public api', () => {
   expect(api).toMatchInlineSnapshot(`
     Object {
+      "CASH_TERMS": Array [
+        "cash_on_pickup",
+        "cash_on_delivery",
+        "2_days",
+        "5_days",
+      ],
+      "CHECK_TERMS": Array [
+        "check_on_delivery",
+        "check_on_pickup",
+        "2_days",
+        "5_days",
+        "7_days",
+        "10_days",
+        "15_days",
+        "20_days",
+        "30_days",
+        "45_days",
+        "60_days",
+      ],
       "CUSTOMER_TYPES": Array [
         "BUSINESS",
         "DEALER",
@@ -17,6 +36,19 @@ it('exports public api', () => {
         "exact",
         "not_earlier_than",
         "not_later_than",
+      ],
+      "ELECTRONIC_PAYMENT_TERMS": Array [
+        "on_delivery",
+        "on_pickup",
+        "2_days",
+        "5_days",
+        "7_days",
+        "10_days",
+        "15_days",
+        "20_days",
+        "30_days",
+        "45_days",
+        "60_days",
       ],
       "LOAD_PAYMENT_METHODS": Array [
         "cod",
@@ -69,6 +101,7 @@ it('exports public api', () => {
         "quick_pay",
         "check_on_delivery",
         "check_on_pickup",
+        "2_days",
         "5_days",
         "7_days",
         "10_days",
