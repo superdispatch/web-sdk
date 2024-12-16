@@ -34,7 +34,7 @@ it('formats known', () => {
       ],
       Array [
         "direct_deposit",
-        "ACH (Direct Deposit)",
+        "Direct Deposit",
       ],
       Array [
         "venmo",
