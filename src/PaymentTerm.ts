@@ -24,6 +24,7 @@ export type PaymentTerm =
   | '45_days'
   | '60_days';
 
+// @deprecated – use `OTHER_PAYMENT_TERMS`
 export const PAYMENT_TERMS: PaymentTerm[] = [
   'other',
   'superpay',
@@ -34,7 +35,6 @@ export const PAYMENT_TERMS: PaymentTerm[] = [
   'quick_pay',
   'check_on_delivery',
   'check_on_pickup',
-  '2_days',
   '5_days',
   '7_days',
   '10_days',
@@ -44,6 +44,7 @@ export const PAYMENT_TERMS: PaymentTerm[] = [
   '45_days',
   '60_days',
 ];
+export const OTHER_PAYMENT_TERMS = PAYMENT_TERMS;
 
 export const SUPERPAY_TERMS: PaymentTerm[] = [
   '1_3_days',
@@ -92,7 +93,7 @@ export const ELECTRONIC_PAYMENT_TERMS: PaymentTerm[] = [
 ];
 
 const ALL_PAYMENT_TERMS: PaymentTerm[] = [
-  ...PAYMENT_TERMS,
+  ...OTHER_PAYMENT_TERMS,
   ...SUPERPAY_TERMS,
   ...CASH_TERMS,
   ...CHECK_TERMS,
@@ -133,7 +134,7 @@ export function listPaymentTerms(
     case 'zelle':
       return ELECTRONIC_PAYMENT_TERMS;
     default:
-      return PAYMENT_TERMS;
+      return OTHER_PAYMENT_TERMS;
   }
 }
 

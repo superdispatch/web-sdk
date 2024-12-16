@@ -1,18 +1,18 @@
 import {
   formatPaymentTerm,
-  PAYMENT_TERMS,
+  OTHER_PAYMENT_TERMS,
   SUPERPAY_TERMS,
 } from '../PaymentTerm';
 
 it('formats known', () => {
-  PAYMENT_TERMS.map((term) => [
+  OTHER_PAYMENT_TERMS.map((term) => [
     term,
     formatPaymentTerm(term),
     formatPaymentTerm(term, { short: true }),
   ]);
 
   expect(
-    PAYMENT_TERMS.map((term) => [
+    OTHER_PAYMENT_TERMS.map((term) => [
       term,
       formatPaymentTerm(term),
       formatPaymentTerm(term, { short: true }),
@@ -63,11 +63,6 @@ it('formats known', () => {
         "check_on_pickup",
         "Check on Pickup",
         "CKOP",
-      ],
-      Array [
-        "2_days",
-        "2 Business Days",
-        "2 Business Days",
       ],
       Array [
         "5_days",
