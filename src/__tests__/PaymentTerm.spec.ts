@@ -65,6 +65,11 @@ it('formats known', () => {
         "CKOP",
       ],
       Array [
+        "2_days",
+        "2 Business Days",
+        "2 Business Days",
+      ],
+      Array [
         "5_days",
         "5 Business Days",
         "5 Business Days",

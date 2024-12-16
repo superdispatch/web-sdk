@@ -44,6 +44,8 @@ export function formatPaymentMethod(
       return 'UShip';
     case 'superpay':
       return 'SuperPay';
+    case 'direct_deposit':
+      return 'ACH (Direct Deposit)';
     default:
       return toStartCase(input);
   }
