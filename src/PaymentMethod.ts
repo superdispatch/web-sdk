@@ -8,6 +8,7 @@ export const PAYMENT_METHODS = [
   'money_order',
   'comchek',
   'credit_card',
+  'ach',
   'direct_deposit',
   'venmo',
   'cashapp',
@@ -42,6 +43,8 @@ export function formatPaymentMethod(
       return 'CashApp';
     case 'uship':
       return 'UShip';
+    case 'ach':
+      return 'ACH';
     case 'superpay':
       return 'SuperPay';
     default:

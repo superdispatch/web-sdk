@@ -33,6 +33,10 @@ it('formats known', () => {
         "Credit Card",
       ],
       Array [
+        "ach",
+        "ACH",
+      ],
+      Array [
         "direct_deposit",
         "Direct Deposit",
       ],

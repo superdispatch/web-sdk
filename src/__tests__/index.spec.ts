@@ -103,6 +103,7 @@ it('exports public api', () => {
         "money_order",
         "comchek",
         "credit_card",
+        "ach",
         "direct_deposit",
         "venmo",
         "cashapp",
