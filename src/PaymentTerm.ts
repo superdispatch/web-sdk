@@ -77,7 +77,7 @@ export const CHECK_TERMS = [
   '60_days',
 ] as const;
 
-// Zelle, Venmo, Cash App, uShip, Credit Card, ACH (Direct Deposit)
+// Zelle, Venmo, Cash App, uShip, Credit Card, ACH, Direct Deposit
 export const ELECTRONIC_PAYMENT_TERMS: PaymentTerm[] = [
   'on_delivery',
   'on_pickup',
@@ -126,6 +126,7 @@ export function listPaymentTerms(
     case 'cashiers_check':
     case 'money_order':
       return CHECK_TERMS;
+    case 'ach':
     case 'credit_card':
     case 'direct_deposit':
     case 'venmo':
