@@ -3,6 +3,29 @@ import * as api from '../index';
 it('exports public api', () => {
   expect(api).toMatchInlineSnapshot(`
     Object {
+      "ALL_PAYMENT_TERMS": Array [
+        "other",
+        "superpay",
+        "ach",
+        "comchek",
+        "cash_on_pickup",
+        "cash_on_delivery",
+        "quick_pay",
+        "check_on_delivery",
+        "check_on_pickup",
+        "5_days",
+        "7_days",
+        "10_days",
+        "15_days",
+        "20_days",
+        "30_days",
+        "45_days",
+        "60_days",
+        "1_3_days",
+        "2_days",
+        "on_delivery",
+        "on_pickup",
+      ],
       "CASH_TERMS": Array [
         "cash_on_pickup",
         "cash_on_delivery",

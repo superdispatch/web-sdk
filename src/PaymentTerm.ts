@@ -92,13 +92,17 @@ export const ELECTRONIC_PAYMENT_TERMS: PaymentTerm[] = [
   '60_days',
 ];
 
-const ALL_PAYMENT_TERMS: PaymentTerm[] = [
+const ALL_PAYMENT_TERMS_SET = new Set([
   ...OTHER_PAYMENT_TERMS,
   ...SUPERPAY_TERMS,
   ...CASH_TERMS,
   ...CHECK_TERMS,
   ...ELECTRONIC_PAYMENT_TERMS,
-];
+]);
+
+export const ALL_PAYMENT_TERMS: PaymentTerm[] = Array.from(
+  ALL_PAYMENT_TERMS_SET,
+);
 
 export type SuperPayTerm = typeof SUPERPAY_TERMS[number];
 export type CashTerm = typeof CASH_TERMS[number];
@@ -106,7 +110,7 @@ export type CheckTerm = typeof CHECK_TERMS[number];
 export type ElectronicPaymentTerm = typeof ELECTRONIC_PAYMENT_TERMS[number];
 
 export function isValidPaymentTerm(input: unknown): input is PaymentTerm {
-  return ALL_PAYMENT_TERMS.includes(input as PaymentTerm);
+  return ALL_PAYMENT_TERMS_SET.has(input as PaymentTerm);
 }
 
 export function isValidSuperPayTerm(input: unknown): input is SuperPayTerm {
