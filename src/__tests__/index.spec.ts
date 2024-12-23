@@ -3,6 +3,26 @@ import * as api from '../index';
 it('exports public api', () => {
   expect(api).toMatchInlineSnapshot(`
     Object {
+      "ACH_PAYMENT_METHODS": Array [
+        "ach",
+        "direct_deposit",
+      ],
+      "ALL_PAYMENT_METHODS": Array [
+        "superpay",
+        "cash",
+        "check",
+        "cashiers_check",
+        "money_order",
+        "comchek",
+        "ach",
+        "direct_deposit",
+        "credit_card",
+        "venmo",
+        "cashapp",
+        "uship",
+        "zelle",
+        "other",
+      ],
       "ALL_PAYMENT_TERMS": Array [
         "other",
         "superpay",
@@ -26,11 +46,20 @@ it('exports public api', () => {
         "on_delivery",
         "on_pickup",
       ],
+      "CASH_PAYMENT_METHODS": Array [
+        "cash",
+      ],
       "CASH_TERMS": Array [
         "cash_on_pickup",
         "cash_on_delivery",
         "2_days",
         "5_days",
+      ],
+      "CHECK_PAYMENT_METHODS": Array [
+        "check",
+        "cashiers_check",
+        "money_order",
+        "comchek",
       ],
       "CHECK_TERMS": Array [
         "check_on_delivery",
@@ -44,6 +73,9 @@ it('exports public api', () => {
         "30_days",
         "45_days",
         "60_days",
+      ],
+      "CREDIT_CARD_PAYMENT_METHODS": Array [
+        "credit_card",
       ],
       "CUSTOMER_TYPES": Array [
         "BUSINESS",
@@ -59,6 +91,12 @@ it('exports public api', () => {
         "exact",
         "not_earlier_than",
         "not_later_than",
+      ],
+      "ELECTRONIC_PAYMENT_METHODS": Array [
+        "venmo",
+        "cashapp",
+        "uship",
+        "zelle",
       ],
       "ELECTRONIC_PAYMENT_TERMS": Array [
         "on_delivery",
@@ -97,6 +135,9 @@ it('exports public api', () => {
         "30_days",
         "45_days",
         "60_days",
+        "other",
+      ],
+      "OTHER_PAYMENT_METHODS": Array [
         "other",
       ],
       "OTHER_PAYMENT_TERMS": Array [
@@ -152,6 +193,9 @@ it('exports public api', () => {
         "30_days",
         "45_days",
         "60_days",
+      ],
+      "SUPERPAY_PAYMENT_METHODS": Array [
+        "superpay",
       ],
       "SUPERPAY_TERMS": Array [
         "1_3_days",
