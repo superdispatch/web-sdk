@@ -50,7 +50,7 @@ it('formats known', () => {
       ],
       Array [
         "uship",
-        "UShip",
+        "uShip",
       ],
       Array [
         "zelle",
