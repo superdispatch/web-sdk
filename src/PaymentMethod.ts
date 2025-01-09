@@ -95,7 +95,7 @@ export function formatPaymentMethod(
     case 'cashapp':
       return 'CashApp';
     case 'uship':
-      return 'UShip';
+      return 'uShip';
     case 'ach':
       return 'ACH';
     case 'superpay':

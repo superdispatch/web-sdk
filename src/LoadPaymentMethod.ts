@@ -47,7 +47,7 @@ export function formatLoadPaymentMethod(
     case 'cashapp':
       return 'CashApp';
     case 'uship':
-      return 'UShip';
+      return 'uShip';
     case 'superpay':
       return 'SuperPay';
 
