@@ -6,6 +6,7 @@ export const LOAD_PAYMENT_METHODS = [
   'cod', // term
   'quickpay', // term
   'comchek', // term
+  'ckop', // term
   'cop', // term
   'ckod', // term
   'ach', // term
@@ -51,6 +52,7 @@ export function formatLoadPaymentMethod(
     case 'superpay':
       return 'SuperPay';
 
+    case 'ckop':
     case 'cod':
     case 'cop':
     case 'ckod':
