@@ -24,6 +24,10 @@ it('formats known', () => {
         "Comchek",
       ],
       Array [
+        "ckop",
+        "CKOP",
+      ],
+      Array [
         "cop",
         "COP",
       ],
