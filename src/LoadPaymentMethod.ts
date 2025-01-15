@@ -53,6 +53,10 @@ export function formatLoadPaymentMethod(
       return 'uShip';
     case 'superpay':
       return 'SuperPay';
+    case 'on_delivery':
+      return 'On Delivery';
+    case 'on_pickup':
+      return 'On Pickup';
 
     case 'ckop':
     case 'cod':
