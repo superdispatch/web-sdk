@@ -116,6 +116,8 @@ it('exports public api', () => {
         "quickpay",
         "comchek",
         "ckop",
+        "on_delivery",
+        "on_pickup",
         "cop",
         "ckod",
         "ach",

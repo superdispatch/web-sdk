@@ -28,6 +28,14 @@ it('formats known', () => {
         "CKOP",
       ],
       Array [
+        "on_delivery",
+        "On Delivery",
+      ],
+      Array [
+        "on_pickup",
+        "On Pickup",
+      ],
+      Array [
         "cop",
         "COP",
       ],

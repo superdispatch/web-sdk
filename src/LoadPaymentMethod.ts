@@ -7,6 +7,8 @@ export const LOAD_PAYMENT_METHODS = [
   'quickpay', // term
   'comchek', // term
   'ckop', // term
+  'on_delivery', // term
+  'on_pickup', // term
   'cop', // term
   'ckod', // term
   'ach', // term
@@ -51,6 +53,10 @@ export function formatLoadPaymentMethod(
       return 'uShip';
     case 'superpay':
       return 'SuperPay';
+    case 'on_delivery':
+      return 'On Delivery';
+    case 'on_pickup':
+      return 'On Pickup';
 
     case 'ckop':
     case 'cod':
