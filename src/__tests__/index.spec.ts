@@ -22,8 +22,6 @@ it('exports public api', () => {
         "uship",
         "zelle",
         "other",
-        "on_delivery",
-        "on_pickup",
       ],
       "ALL_PAYMENT_TERMS": Array [
         "other",
@@ -141,12 +139,6 @@ it('exports public api', () => {
         "45_days",
         "60_days",
         "other",
-      ],
-      "ON_DELIVERY_PAYMENT_METHODS": Array [
-        "on_delivery",
-      ],
-      "ON_PICKUP_PAYMENT_METHODS": Array [
-        "on_pickup",
       ],
       "OTHER_PAYMENT_METHODS": Array [
         "other",
