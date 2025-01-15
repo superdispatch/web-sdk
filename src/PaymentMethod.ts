@@ -5,6 +5,8 @@ export type PaymentMethod =
   | 'cash'
   | 'check'
   | 'cashiers_check'
+  | 'on_delivery'
+  | 'on_pickup'
   | 'money_order'
   | 'comchek'
   | 'credit_card'
@@ -15,6 +17,10 @@ export type PaymentMethod =
   | 'uship'
   | 'zelle'
   | 'other';
+
+export const ON_DELIVERY_PAYMENT_METHODS: PaymentMethod[] = ['on_delivery'];
+
+export const ON_PICKUP_PAYMENT_METHODS: PaymentMethod[] = ['on_pickup'];
 
 export const SUPERPAY_PAYMENT_METHODS: PaymentMethod[] = ['superpay'];
 
@@ -48,6 +54,8 @@ const ALL_PAYMENT_METHODS_SET = new Set([
   ...CREDIT_CARD_PAYMENT_METHODS,
   ...ELECTRONIC_PAYMENT_METHODS,
   ...OTHER_PAYMENT_METHODS,
+  ...ON_DELIVERY_PAYMENT_METHODS,
+  ...ON_PICKUP_PAYMENT_METHODS,
 ]);
 
 export const ALL_PAYMENT_METHODS: PaymentMethod[] = Array.from(
