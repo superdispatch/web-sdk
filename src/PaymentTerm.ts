@@ -3,7 +3,6 @@ import { PaymentMethod } from './PaymentMethod';
 
 export type PaymentTerm =
   | 'other'
-  | 'superpay'
   | 'ach'
   | 'comchek'
   | 'on_delivery'
@@ -24,10 +23,8 @@ export type PaymentTerm =
   | '45_days'
   | '60_days';
 
-// @deprecated – use `OTHER_PAYMENT_TERMS`
-export const PAYMENT_TERMS: PaymentTerm[] = [
+export const OTHER_PAYMENT_TERMS: PaymentTerm[] = [
   'other',
-  'superpay',
   'ach',
   'comchek',
   'cash_on_pickup',
@@ -44,7 +41,6 @@ export const PAYMENT_TERMS: PaymentTerm[] = [
   '45_days',
   '60_days',
 ];
-export const OTHER_PAYMENT_TERMS = PAYMENT_TERMS;
 
 export const SUPERPAY_TERMS: PaymentTerm[] = [
   '1_3_days',
@@ -161,8 +157,6 @@ export function formatPaymentTerm(
       return 'ACH';
     case 'quick_pay':
       return 'QuickPay';
-    case 'superpay':
-      return 'SuperPay';
 
     case 'on_delivery':
       return 'On Delivery';

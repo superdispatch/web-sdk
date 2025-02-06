@@ -25,11 +25,6 @@ it('formats known', () => {
         "Other",
       ],
       Array [
-        "superpay",
-        "SuperPay",
-        "SuperPay",
-      ],
-      Array [
         "ach",
         "ACH",
         "ACH",
