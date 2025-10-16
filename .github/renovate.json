@@ -1,3 +1,6 @@
 {
-  "extends": ["@superdispatch", "config:js-lib", "schedule:monthly"]
+  "extends": [
+    "github>superdispatch/js-tools//packages/renovate-config/default.json",
+    "config:js-app"
+  ]
 }
