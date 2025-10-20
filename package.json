@@ -45,7 +45,7 @@
     "@superdispatch/prettier-config": "0.13.1",
     "@superdispatch/tsconfig": "0.13.1",
     "@types/jest": "28.1.8",
-    "eslint": "8.24.0",
+    "eslint": "8.57.1",
     "husky": "8.0.3",
     "jest": "28.1.3",
     "lint-staged": "13.1.0",
