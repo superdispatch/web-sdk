@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: umidbekk/actions/npm/install@v2
       - run: yarn tsc
       - run: yarn lint
