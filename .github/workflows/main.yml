@@ -13,10 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
-      - uses: umidbekk/actions/npm/install@v2
-      - run: yarn tsc
-      - run: yarn lint
-      - run: yarn test
+      - uses: superdispatch/actions/prepare-node-repo@v2
+        with:
+          pnpm-version: 10.25
+      - run: pnpm run tsc
+      - run: pnpm run lint
+      - run: pnpm run test
       - uses: codecov/codecov-action@v5
-      - run: yarn build
+      - run: pnpm run build
