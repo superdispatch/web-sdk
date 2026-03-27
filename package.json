@@ -13,7 +13,7 @@
   "scripts": {
     "build": "pika build",
     "prerelease": "pnpm install --force && pnpm run lint && pnpm run tsc && pnpm run build",
-    "release": "pika publish",
+    "release": "npm publish ./pkg",
     "lint": "js-tools lint",
     "tsc": "tsc",
     "tdd": "jest --watch",
