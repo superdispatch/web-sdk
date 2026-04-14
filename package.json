@@ -11,7 +11,7 @@
     "node": ">=24"
   },
   "scripts": {
-    "build": "pika build",
+    "build": "pika build && node scripts/fix-package-json.js",
     "prerelease": "pnpm install --force && pnpm run lint && pnpm run tsc && pnpm run build",
     "release": "npm publish ./pkg",
     "lint": "js-tools lint",
